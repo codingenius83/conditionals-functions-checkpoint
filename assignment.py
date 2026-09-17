@@ -2811,6 +2811,20 @@ print(tip_amount(80, "good"))
 # THINK:
 # The order of the conditions matters.
 
+def battery_status(battery, is_charging):
+    if battery <= 5 and is_charging == False:
+        return 'critical'
+    elif battery <= 20 and is_charging == False:
+        return 'low'
+    elif is_charging == True:
+        return 'charging'
+    else:
+        return 'normal'
+
+print(battery_status(3, False))
+print(battery_status(15, False))
+print(battery_status(3, True))
+print(battery_status(80, False))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 80 — TAXI FARE
@@ -2842,7 +2856,16 @@ print(tip_amount(80, "good"))
 #
 # Build the final answer from the rules instead of
 # hard-coding different totals.
-
+def taxi_fare(miles, is_night):
+    base_fare = 4
+    each_mile = 2
+    total = each_mile * miles + base_fare
+    if is_night == True:
+        total = total + 5
+    return total
+print(taxi_fare(0, False))
+print(taxi_fare(5, False))
+print(taxi_fare(5, True))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 81 — GAME DAMAGE
@@ -2877,7 +2900,17 @@ print(tip_amount(80, "good"))
 #
 # THINK:
 # The critical hit should happen AFTER defense is removed.
-
+def calculate_damage(attack, defense, critical):
+    damage = attack - defense
+    if damage <= 0:
+        damage = 0
+    if critical == True:
+        damage = damage * 2
+    return damage
+calculate_damage(20, 5, False) 
+calculate_damage(20, 5, True)   
+calculate_damage(5, 20, False) 
+calculate_damage(5, 20, True)  
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 82 — STORE COUPON
@@ -2915,7 +2948,19 @@ print(tip_amount(80, "good"))
 #
 # THINK:
 # A 25% discount means the customer pays 75% of the price.
-
+def final_price(price, coupon):
+    if coupon == "none":
+        return price
+    elif coupon == 'SAVE10':
+        price = price - (price * (1/10))
+        return price
+    elif coupon == 'SAVE25':
+        price = price - (price * (1/4))
+        return price
+final_price(100, "none")
+final_price(100, "SAVE10")
+final_price(100, "SAVE25")
+final_price(80, "SAVE25")
 
 # ============================================================
 # GIT CHECK
