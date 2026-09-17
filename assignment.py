@@ -1218,11 +1218,16 @@ print(highest_result)
 # Test it at least THREE times.
 
 def lowest_of_three(a,b,c):
-    if a < b and a < c:
+    if a<b and a<c:
         return a
-    elif b < a and b < c:
+    elif b<a and b<c:
         return b
-    elif 
+    elif c<a and c<b:
+        return c
+
+print(lowest_of_three(1,5,3))
+print(lowest_of_three(1213123,5,3543))
+print(lowest_of_three(1,52131,3))
 
 
 # TASK 45:
@@ -1244,6 +1249,19 @@ def lowest_of_three(a,b,c):
 # middle_of_three(10, 30, 20)
 # middle_of_three(50, 5, 25)
 # middle_of_three(8, 7, 9)
+
+def middle_of_three(a,b,c):
+    if a > b and a < c or a > c and a < b:
+        return a
+    elif b > a and b < c or b > c and b < a:
+        return b
+    elif c > a and c < b or c > b and c < a:
+        return c
+
+print(middle_of_three(10, 30, 20))
+print(middle_of_three(50, 5, 25))
+print(middle_of_three(8, 7, 9))
+    
 
 
 # ============================================================
@@ -1284,6 +1302,24 @@ def lowest_of_three(a,b,c):
 #
 # IMPORTANT:
 # Do NOT repeat the highest/lowest logic outside the functions.
+def get_highest(a,b,c):
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    elif c > a and c > b:
+        return c
+def get_lowest(a,b,c):
+    if a < b and a < c:
+        return a
+    elif b < a and b < c:
+        return b
+    elif c < a and c < a:
+        return c
+highest = get_highest(30,10,20)
+lowest = get_lowest(30,10,20)
+difference = highest - lowest
+print(difference)
 
 
 # TASK 47:
@@ -1305,6 +1341,17 @@ def lowest_of_three(a,b,c):
 #
 # or:
 # Small spread
+
+a = 9
+b = 4
+c = 15
+high = get_highest(a,b,c)
+low = get_lowest(a,b,c)
+dif = high - low
+if dif > 10:
+    print('large spread')
+else:
+    print('small spread')
 
 
 # TASK 48:
@@ -1333,6 +1380,21 @@ def lowest_of_three(a,b,c):
 # THINK:
 # How can one function call feed into another?
 
+a = 12
+b = 50
+c = 31
+
+def best_of_two(num1,num2):
+    if num1 > num2:
+        return num1
+    else:
+        return num2
+
+wow = best_of_two(a,b)
+highest = best_of_two(wow,c)
+print(highest)
+
+
 
 # TASK 49:
 # Create a function named:
@@ -1352,6 +1414,17 @@ def lowest_of_three(a,b,c):
 # lowest
 #
 # Print lowest.
+
+def worst_of_two(num1, num2):
+    if num1 < num2:
+        return num1
+    else:
+        return num2
+a=22
+b=5
+c=17
+wow2 = worst_of_two(a,b)
+lowest = worst_of_two(wow2,c)
 
 
 # ============================================================
@@ -1375,6 +1448,15 @@ def lowest_of_three(a,b,c):
 #
 # Do NOT calculate the middle value separately first.
 
+a=12
+b=7
+c=19
+if b > a and b < c or b < a and b > c:
+    print('b is middle')
+else:
+    print('b is not middle')
+
+
 
 # TASK 51:
 # Create:
@@ -1391,6 +1473,22 @@ def lowest_of_three(a,b,c):
 # or:
 # Highest is unique
 
+a = 25
+b = 25
+c = 10
+
+tuff_string = "highest is unique"
+tuff_string1 = "highest is tied"
+
+if a > b and a > c:
+    print(tuff_string)
+elif b > a and b > c:
+    print(tuff_string)
+elif c > a and c > b:
+    print(tuff_string)
+else:
+    print(tuff_string1)
+
 
 # TASK 52:
 # Create:
@@ -1406,6 +1504,16 @@ def lowest_of_three(a,b,c):
 # Neither
 #
 # Print ONE result.
+
+a=3
+b=8
+c=5
+if a < b < c:
+    print('strictly increasing')
+elif a > b > c:
+    print('strictly decreasing')
+else:
+    print('neither')
 
 
 # TASK 53:
@@ -1428,6 +1536,14 @@ def lowest_of_three(a,b,c):
 # Non-decreasing
 # OR
 # Not non-decreasing
+
+a = 5
+b = 5
+c = 10
+if a < c:
+    print('non-decreasing')
+elif a > c:
+    print('not non-decreasing')
 
 
 # TASK 54:
@@ -1453,6 +1569,15 @@ def lowest_of_three(a,b,c):
 #
 # Read this one carefully.
 
+age = 17
+has_permission = True
+has_ticket = False
+
+if age >= 18 or has_permission == True and has_ticket == True:
+    print('entry allowed')
+else:
+    print('entry denied')
+
 
 # TASK 55:
 # Create:
@@ -1476,6 +1601,15 @@ def lowest_of_three(a,b,c):
 #
 # Only ONE message should print.
 
+score = 88
+attendance = 92
+if score >= 90 and attendance >= 90:
+    print('honors')
+elif score >= 70 and attendance >= 75:
+    print('pass')
+else:
+    print('fail')
+
 
 # ============================================================
 # SECTION 11 — DEBUGGING CHALLENGES
@@ -1495,6 +1629,12 @@ def lowest_of_three(a,b,c):
 # if score >= 90:
 #     print("Excellent")
 
+score = 95
+if score >= 70:
+    print('passing')
+elif score >= 90:
+    print('excellent')
+
 
 # TASK 57:
 # The programmer wants 18 to count as Adult.
@@ -1507,6 +1647,12 @@ def lowest_of_three(a,b,c):
 #     print("Adult")
 # else:
 #     print("Minor")
+
+age = 18
+if age >= 18:
+    print('adult')
+else:
+    print('minor')
 
 
 # TASK 58:
@@ -1524,6 +1670,12 @@ def lowest_of_three(a,b,c):
 # else:
 #     print("Invalid")
 
+number = 20
+if number >= 10 and number <= 20:
+    print('valid')
+else:
+    print('invalid')
+
 
 # TASK 59:
 # The programmer wants the function to RETURN the answer.
@@ -1537,6 +1689,12 @@ def lowest_of_three(a,b,c):
 # result = add_numbers(4, 6)
 # print(result)
 
+def add_numbers(a,b):
+    total = a + b
+    return total
+result = add_numbers(4,6)
+print(result)
+
 
 # TASK 60:
 # Fix the function so the variable result works outside
@@ -1547,6 +1705,12 @@ def lowest_of_three(a,b,c):
 #
 # result = subtract(20, 8)
 # print(result)
+
+def subtract(a,b):
+    answer = a-b
+    return answer
+result = subtract(20,8)
+print(result)
 
 
 # ============================================================
@@ -1595,6 +1759,71 @@ def lowest_of_three(a,b,c):
 # analyze_three_numbers(5, 5, 9)
 # analyze_three_numbers(-5, 0, -12)
 
+def analyze_three_numbers(a, b, c):
+    highest = 0
+    lowest = 0
+    middle = 0
+    if a > b and a > c:
+        highest = a
+    elif b > a and b > c:
+        highest = b
+    elif c > a and c > b:
+        highest = c
+    else:
+        if a > b and a == c:
+            highest = a or c
+        elif a > c and a == b:
+            highest = a or b
+        elif b > a and b == c:
+            highest = b or c
+        elif a == b == c:
+            highest = a or b or c
+    if a < b and a < c:
+        lowest = a
+    elif b < a and b < c:
+        lowest = b
+    elif c < a and c < b:
+        lowest = c
+    else:
+        if a < b and a == c:
+            lowest = a or c
+        elif a < c and a == b:
+            lowest = a or b
+        elif b < a and b == c:
+            lowest = b or c
+        elif a == b == c:
+            lowest = a or b or c
+    if a > b and a < c or a < b and a > c:
+        middle = a
+    elif b > a and b < c or b < a and b > c:
+        middle = b
+    elif c > a and c < b or c < a and c > b:
+        middle = c
+    else:
+        if a == b == c:
+            middle = a or b or c
+        else:
+            middle = -1000000
+    print(f'highest: {highest}')
+    print(f'lowest: {lowest}')
+    if middle == -1000000:
+        print('middle: doesnt exist')
+    else:
+        print(f'middle: {middle}')
+    if a == b == c:
+        print('all the same')
+    elif a == b and a != c or a == c and a != b or b == c and b != a:
+        print('exactly two are the same')
+    else:
+        print('all different')
+analyze_three_numbers(8, 3, 15)
+analyze_three_numbers(20, 20, 20)
+analyze_three_numbers(5, 5, 9)
+analyze_three_numbers(-5, 0, -12)
+
+    
+    
+
 
 # ============================================================
 # FINAL BOSS 2 — NUMBER RANKING
@@ -1628,6 +1857,28 @@ def lowest_of_three(a,b,c):
 # - Do NOT use sorting
 #
 # Your program must still work if the order of inputs changes.
+
+user_num1 = int(input('give first number pls'))
+user_num2 = int(input('give second number pls'))
+user_num3 = int(input('give third number pls'))
+def sort(a,b,c):
+    if a < b and a < c:
+        if b < c:
+            return a,b,c
+        else:
+            return a,c,b
+    elif b < a and b < c:
+        if a < c:
+            return b,a,c
+        else:
+            return b,c,a
+    elif c < a and c < b:
+        if a < b:
+            return c,a,b
+        else:
+            return c,b,a
+print(sort(user_num1,user_num2,user_num3))
+            
 
 
 # ============================================================
@@ -1667,6 +1918,38 @@ def lowest_of_three(a,b,c):
 #
 # Do NOT use min(), max(), or sorting.
 
+first = int(input('give your first number'))
+second = int(input('give your second number'))
+third = int(input('give your third number'))
+def get_highest(a,b,c):
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    elif c > a and c > b:
+        return c
+def get_lowest(a,b,c):
+    if a < b and a < c:
+        return a
+    elif b < a and b < c:
+        return b
+    elif c < a and c < b:
+        return c
+def get_middle(a,b,c):
+    if a > b and a < c or a < b and a > c:
+        return a
+    elif b > a and b < c or b < a and b > c:
+        return b
+    elif c > a and c < b or c < a and c > b:
+        return c
+    else:
+        if a == b == c:
+            return a or b or c
+highest = get_highest(first,second,third)
+lowest = get_lowest(first,second,third)
+middle = get_middle(first,second,third)
+
+print(f'highest = {highest}\nlowest = {lowest}\nmiddle = {middle}')
 
 # ============================================================
 # FINAL BOSS 4 — CONDITIONAL DECISION SYSTEM
@@ -1704,6 +1987,18 @@ def lowest_of_three(a,b,c):
 # The first person should still be accepted even though
 # the interview value is "fail".
 
+def admission_decision(grade, attendance, interview):
+    if grade >= 90 and attendance >= 90:
+        print('accepted')
+    elif grade >= 80 and attendance >= 80 and interview == "pass":
+        print('accepted')
+    else:
+        print('not accepted')
+admission_decision(95, 95, "fail")
+admission_decision(85, 85, "pass")
+admission_decision(85, 85, "fail")
+admission_decision(75, 100, "pass")
+
 
 # ============================================================
 # FINAL BOSS 5 — THINK CAREFULLY
@@ -1736,6 +2031,29 @@ def lowest_of_three(a,b,c):
 # - Do NOT use sorting
 #
 # Your logic should still work if the variable values change.
+a=15
+b=8
+c=15
+def high_checker(a,b,c):
+    if a > b and a > c:
+        return a, "unique highest"
+    elif b > a and b > c:
+        return b, "unique highest"
+    elif c > a and c > b:
+        return c, "unique highest"
+    else:
+        if a > b and a == c:
+            return a or c, "tied highest"
+        elif a > c and a == b:
+            return a or b, "tied highest"
+        elif b > a and b == c:
+            return b or c, "tied highest"
+        else:
+            return a or b or c, "tied highest"
+highest, epic_string = high_checker(a,b,c)
+print(f'highest: {highest}\n{epic_string}')
+
+
 
 
 
@@ -1799,6 +2117,19 @@ def lowest_of_three(a,b,c):
 # CHALLENGE:
 # The same function must be able to convert in BOTH directions.
 
+def convert_temperature(temperature, scale):
+    if scale == "C":
+        fahrenheit = temperature * 1.8 + 32
+        return fahrenheit
+    elif scale == "F":
+        celsius = (temperature - 32) / 1.8
+        return celsius
+print(convert_temperature(0, "C"))  
+print(convert_temperature(100, "C"))   
+print(convert_temperature(32, "F"))    
+print(convert_temperature(68, "F"))     
+
+
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 67 — KELVIN CONVERTER
@@ -1836,7 +2167,18 @@ def lowest_of_three(a,b,c):
 #
 # THINK:
 # One input can require TWO calculations before you return the answer.
-
+def to_kelvin(temperature, scale):
+    if scale == "C":
+        kelvin = temperature + 273.15
+        return kelvin
+    elif scale == "F":
+        celsius = (temperature - 32) / 1.8
+        kelvin = celsius + 273.15
+        return kelvin
+print(to_kelvin(0, "C"))
+print(to_kelvin(100, "C"))
+print(to_kelvin(32, "F"))
+print(to_kelvin(212, "F"))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 68 — PARKING GARAGE
@@ -1870,6 +2212,20 @@ def lowest_of_three(a,b,c):
 #
 # THINK:
 # Do not accidentally charge $3 for the first hour.
+def parking_cost(hours):
+    if hours <= 1:
+        cost = 5
+        return cost
+    elif hours > 1:
+        additional = (hours-1) * 3
+        cost = additional + 5
+        return cost
+print(parking_cost(1))
+print(parking_cost(2))
+print(parking_cost(5))
+print(parking_cost(9))
+print(parking_cost(20))
+    
 
 
 # ------------------------------------------------------------
@@ -1905,6 +2261,35 @@ def lowest_of_three(a,b,c):
 # THINK:
 # First determine the base ticket price.
 # Then decide whether something must be added.
+def movie_total(age, is_weekend):
+    price1 = 8
+    price2 = 12
+    price3 = 7
+    additional = 3
+    if age < 13:
+        if is_weekend:
+            final = price1 + additional
+            return final
+        else:
+            return price1
+    elif age >= 13 and age < 65:
+        if is_weekend:
+            final = price2 + additional
+            return final
+        else:
+            return price2
+    else:
+        if is_weekend:
+            final = price3 + additional
+            return final
+        else:
+            return price3
+print(movie_total(10, False))
+print(movie_total(10, True)) 
+print(movie_total(30, False)) 
+print(movie_total(70, True))
+            
+
 
 
 # ------------------------------------------------------------
@@ -1939,6 +2324,21 @@ def lowest_of_three(a,b,c):
 #
 # IMPORTANT:
 # For 120 units, only 20 units should be charged at $0.20.
+
+def electric_bill(usage):
+    if usage <= 0:
+        usage == 0
+    if usage <= 100:
+        cost = usage * 0.1
+        return cost
+    else:
+        add_units = (usage - 100) * 0.2
+        cost = add_units + 10
+        return cost
+print(electric_bill(50))
+print(electric_bill(100))
+print(electric_bill(120))
+print(electric_bill(200))
 
 
 # ------------------------------------------------------------
@@ -1976,6 +2376,19 @@ def lowest_of_three(a,b,c):
 # THINK:
 # A year divisible by 100 is NOT automatically a leap year.
 
+def is_leap_year(year):
+    if year % 400 == 0:
+        return True
+    elif year % 4 == 0 and year % 100 >= 1:
+        return True
+    else:
+        return False
+print(is_leap_year(2024))
+print(is_leap_year(2025))
+print(is_leap_year(1900))
+print(is_leap_year(2000))
+
+
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 72 — TRIANGLE VALIDITY
@@ -2011,7 +2424,15 @@ def lowest_of_three(a,b,c):
 #
 # Notice that 2 + 3 = 5 is NOT enough.
 # It must be GREATER THAN.
-
+def valid_triangle(a,b,c):
+    if a+b>c and a+c>b and b+c>a:
+        return True
+    else:
+        return False
+print(valid_triangle(3, 4, 5))
+print(valid_triangle(5, 5, 5))
+print(valid_triangle(1, 2, 10))
+print(valid_triangle(2, 3, 5))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 73 — TRIANGLE TYPE
@@ -2054,7 +2475,20 @@ def lowest_of_three(a,b,c):
 #
 # THINK:
 # Check whether the triangle is valid BEFORE classifying it.
-
+def triangle_type(a,b,c):
+    if a+b>c and a+c>b and b+c>a:
+        if a == b == c:
+            return "equilateral"
+        elif a == b and a != c or a == c and a != b or b == c and b != a:
+            return "isosceles"
+        else:
+            return "scalene"
+    else:
+        return "invalid"
+print(triangle_type(3, 3, 3))
+print(triangle_type(5, 5, 8))
+print(triangle_type(3, 4, 5))
+print(triangle_type(1, 2, 10))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 74 — ROCK PAPER SCISSORS
@@ -2110,7 +2544,29 @@ def lowest_of_three(a,b,c):
 # This is a logic problem.
 # There are several possible combinations.
 
-
+def rps_winner(player1, player2):
+    if player1 == player2:
+        return 'tie'
+    else:
+        if player1 == 'rock':
+            if player2 == 'paper':
+                return 'player2'
+            elif player2 == 'scissors':
+                return 'player1'
+        elif player1 == 'paper':
+            if player2 == 'rock':
+                return 'player1'
+            elif player2 == 'scissors':
+                return 'player2'
+        elif player1 == 'scissors':
+            if player2 == 'rock':
+                return 'player2'
+            elif player2 == 'paper':
+                return 'player1'
+print(rps_winner("rock", "scissors"))
+print(rps_winner("paper", "rock"))
+print(rps_winner("rock", "paper"))
+print(rps_winner("paper", "paper"))
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 75 — CLOSEST TO 100
 # ------------------------------------------------------------
@@ -2142,6 +2598,39 @@ def lowest_of_three(a,b,c):
 # THINK:
 # A number may be above OR below 100.
 # You will need to determine each number's distance from 100.
+def closest_to_100(a,b):
+    if a == 100:
+        return a
+    elif b == 100:
+        return b
+    def higher_than_100(num):
+        if num > 100:
+            return True
+        elif num < 100:
+            return False
+    checka = higher_than_100(a)
+    checkb = higher_than_100(b)
+    finala = 0
+    finalb = 0
+    if checka == True:
+        finala = a - 100
+    else:
+        finala = 100 - a
+    if checkb == True:
+        finalb = b - 100
+    else:
+        finalb = 100 - b
+    if finala < finalb:
+        return a
+    elif finala > finalb:
+        return b
+    else:
+        return -1
+
+
+print(closest_to_100(90, 80))
+print(closest_to_100(105, 120))
+print(closest_to_100(90, 110)) 
 
 
 # ------------------------------------------------------------
@@ -2178,6 +2667,17 @@ def lowest_of_three(a,b,c):
 # THINK:
 # A large order does NOT always mean free delivery.
 
+def delivery_fee(order_total, distance):
+    if order_total >= 50 and distance <= 5:
+        return 0
+    elif distance <= 5:
+        return 5
+    else:
+        return 10
+print(delivery_fee(60, 3))
+print(delivery_fee(30, 3))
+print(delivery_fee(60, 8))
+print(delivery_fee(30, 8))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 77 — ATM WITHDRAWAL
@@ -2210,6 +2710,15 @@ def lowest_of_three(a,b,c):
 #
 # ALL conditions must be true.
 
+def can_withdraw(balance, amount):
+    if amount > 0 and amount <= balance and amount % 20 == 0:
+        return True
+    else:
+        return False
+print(can_withdraw(500, 100))
+print(can_withdraw(500, 125))
+print(can_withdraw(50, 100))
+print(can_withdraw(500, 0))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 78 — RESTAURANT TIP
@@ -2248,6 +2757,21 @@ def lowest_of_three(a,b,c):
 #
 # THINK:
 # RETURN only the TIP, not the final bill.
+def tip_amount(bill, service):
+    if service == 'poor':
+        tip = bill * (1/10)
+        return tip
+    elif service == 'good':
+        tip = bill * (18/100)
+        return tip
+    elif service == "excellent":
+        tip = bill * (1/4)
+        return tip
+print(tip_amount(100, "poor"))
+print(tip_amount(100, "good"))
+print(tip_amount(100, "excellent"))
+print(tip_amount(80, "good"))
+
 
 
 # ------------------------------------------------------------
